@@ -9,7 +9,9 @@ namespace AlternativaSistemas.TesteTecnico.API.Repositories {
         Task<IEnumerable<Produto>> Get();
         Task<Produto> Get(int id);
         Task<Produto> Create(Produto produto);
-        Task Update(Produto produto);
+        Task Update(int id, Produto produto);
         Task Delete(int id);
+
+        Task<bool> ProdutoExiste(int id);
     }
 }

@@ -12,7 +12,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Controllers {
     [ApiController]
     public class CategoriasController : ControllerBase {
         private readonly ICategoriaRepository _categoriaRepository;
-        private readonly IProdutoRepository _produtoRepository;
+        
         public CategoriasController(ICategoriaRepository categoriaRepository) {
             _categoriaRepository = categoriaRepository;
             
@@ -38,8 +38,11 @@ namespace AlternativaSistemas.TesteTecnico.API.Controllers {
         public async Task<ActionResult> Delete(int id) {
             
             var categoria = await _categoriaRepository.Get(id);
-            var canDelete = _categoriaRepository.ProdutosNaCategoria(id) == null;
-            if(categoria != null && canDelete){
+            if(categoria != null) {
+                var canDelete = _categoriaRepository.CategoriaSemProdutos(id).Result;
+                if(!canDelete) {
+                    return Conflict("A categoria contém produtos e não pode ser excluída.");
+                }           
                 await _categoriaRepository.Delete(categoria.Id);
                 return NoContent();
             }

@@ -35,13 +35,18 @@ namespace AlternativaSistemas.TesteTecnico.API.Repositories {
         
 
         public async Task Update(Categoria categoria) {
+
             _context.Entry(categoria).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> ProdutosNaCategoria(int categoryId) {
-            return await _context.Produtos.FirstOrDefaultAsync(p => p.CategoryId == categoryId) == null;
+        public async Task<bool> CategoriaSemProdutos(int categoryId) {
+            var prod = await _context.Produtos.FirstOrDefaultAsync(p => p.CategoryId == categoryId);
+            return  prod == null;
         }
 
+        public async Task<bool> CategoriaExiste(int id) {
+            return await _context.Categorias.AnyAsync(c => c.Id == id);
+        }
     }
 }

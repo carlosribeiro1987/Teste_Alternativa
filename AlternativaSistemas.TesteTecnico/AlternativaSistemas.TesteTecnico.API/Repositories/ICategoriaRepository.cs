@@ -12,6 +12,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Repositories {
         Task Update(Categoria categoria);
         Task Delete(int id);
 
-        Task<bool> ProdutosNaCategoria(int categoryId);
+        Task<bool> CategoriaSemProdutos(int categoryId);
+        Task<bool> CategoriaExiste(int id);
     }
 }
