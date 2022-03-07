@@ -28,7 +28,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Models {
         [Column("value", TypeName = "decimal(10,2)")]
         [Required(ErrorMessage = "Este campo é obrigatório.")]
         [Range(0, int.MaxValue, ErrorMessage = "O valor não pode ser negativo.")]
-        public float Value { get; set; }
+        public decimal Value { get; set; }
 
 
         [Column("brand")]

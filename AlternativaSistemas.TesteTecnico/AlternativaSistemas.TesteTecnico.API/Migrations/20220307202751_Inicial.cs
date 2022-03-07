@@ -12,8 +12,8 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: true),
+                    description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false),
                     value = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     brand = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     category_id = table.Column<int>(type: "int", nullable: false)

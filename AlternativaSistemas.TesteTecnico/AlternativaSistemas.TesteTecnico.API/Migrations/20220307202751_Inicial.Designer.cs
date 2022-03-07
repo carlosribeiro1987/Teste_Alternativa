@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlternativaSistemas.TesteTecnico.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220304162530_Inicial")]
+    [Migration("20220307202751_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,11 +28,15 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
@@ -58,6 +62,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                         .HasColumnName("category_id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(1024)
                         .HasColumnType("nvarchar(1024)")
                         .HasColumnName("description");

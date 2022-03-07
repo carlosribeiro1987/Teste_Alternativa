@@ -18,7 +18,7 @@ Teste técnico Alternativa Sistemas
 **Retorno:** Objeto JSON contendo a categoria consultada (caso exista).
 **Parâmetros:**
 
--   **`id`** <small>(inteiro, 32 bits)</small>: ID da categoria . Informado na URL da requisição.
+-   **`id`** <small>(**inteiro**, 32 bits)</small>: ID da categoria . Informado na URL da requisição.
 
 #### Criar categoria: **`/api/Categorias`**
 
@@ -26,8 +26,8 @@ Teste técnico Alternativa Sistemas
 **Retorno:** Objeto JSON contendo a categorias criada.
 **Parâmetros:**
 
--   **`name`** <small>(string, max. 50 caracteres)</small>: Nome da categoria . Informado no corpo requisição.
--   **`description`** <small>(string, max. 1024 caracteres)</small>: Descrição da categoria .Informado no corpo requisição.
+-   **`name`** <small>(**string**, max. 50 caracteres)</small>: Nome da categoria . Informado no corpo requisição.
+-   **`description`** <small>(**string**, max. 1024 caracteres)</small>: Descrição da categoria .Informado no corpo requisição.
 
 #### Alterar categoria existente: **`/api/Categorias/{id}`**
 
@@ -38,7 +38,7 @@ Teste técnico Alternativa Sistemas
 -   **`id`** <small>(inteiro, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
 -   **`categoria`** <small>Objeto do tipo `categoria`</small>: Informado no corpo da requisição.
     Parâmetros do objeto `categoria`
-    -   **`id`** <small>(inteiro, 32bits)</small>: ID da categoria.
+    -   **`id`** <small>(**inteiro**, 32bits)</small>: ID da categoria.
     -   **`name`** <small>(string, max. 50 caracteres)</small>: Nome da categoria.
     -   **`description`** <small>(string, max. 1024 caracteres)</small>: Descrição da categoria.
 
@@ -48,7 +48,7 @@ Teste técnico Alternativa Sistemas
 **Retorno:** Nenhum.
 **Parâmetros:**
 
--   **`id`** <small>(inteiro, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
+-   **`id`** <small>(**inteiro**, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
 
 > **Observação**
 > Não será possível excluir uma categoria se houver produtos relacionados a ela.
@@ -63,13 +63,13 @@ Teste técnico Alternativa Sistemas
 **Retorno:** Objeto JSON contendo os produtos cadastrados.
 **Parâmetros:** Nenhum.
 
-#### Listar categoria específica: **`/api/Produtos/{id}`**
+#### Listar produto específico: **`/api/Produtos/{id}`**
 
 **Método:** **`GET`**
 **Retorno:** Objeto JSON contendo o produto consultado (caso exista).
 **Parâmetros:**
 
--   **`id`** <small>(inteiro, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
+-   **`id`** <small>(**inteiro**, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
 
 #### Criar produto: **`/api/Produtos`**
 
@@ -77,25 +77,29 @@ Teste técnico Alternativa Sistemas
 **Retorno:** Objeto JSON contendo o produto criado.
 **Parâmetros:**
 
--   **`name`** <small>(string, max. 50 caracteres)</small>: Nome do produto. Informado no corpo requisição.
--   **`description`** <small>(string,max. 1024 caracteres)</small>: Descrição do produto. Informado no corpo requisição.
--   **`value`** <small>(decimal, precisão [10,2])</small>: Valor do produto.
--
+-   **`name`** <small>(**string**, max. 50 caracteres)</small>: Nome do produto. Informado no corpo requisição.
+-   **`description`** <small>(**string**,max. 1024 caracteres)</small>: Descrição do produto. Informado no corpo requisição.
+-   **`value`** <small>(**decimal**, precisão [10,2])</small>: Valor do produto.
+-   **`brand`** <small>(**string**, máx 50 caracteres)</small>: Marca do produto.
+-   **`categoryId`** <small>(**inteiro**, 32 bits)</small>: ID da categoria do produto.
 
-#### Alterar produto existente:: **`/api/Produtos/{id}`**
+#### Alterar produto existente: **`/api/Produtos/{id}`**
 
 **Método:** **`PUT`**
 **Retorno:** Objeto JSON contendo o produto alterado.
 **Parâmetros:**
 
--   **`id`** ID do produto (Inteiro (32 bits). Informado na URL da requisição.
+-   **`id`** ID do produto (**inteiro**, 32 bits). Informado na URL da requisição.
+-   **`produto`** <small>Objeto contendo as alterações.`</small>: Informado no corpo da requisição. Parâmetros do objeto `produto`
+    -   **`id`** <small>(**inteiro**, 32bits)</small>: ID do produto.
+    -   **`name`** <small>(string, max. 50 caracteres)</small>: Nome do produto.
+    -   **`description`** <small>(string, máx. 1024 caracteres)</small>: Descrição do produto
+    -   .
 
-#### Excluir categoria: **`/api/Produtos/{id}`**
+#### Excluir produto: **`/api/Produtos/{id}`**
 
 **Método:** **`DELETE`**
 **Retorno:** Nenhum.
 **Parâmetros:**
 
--   **`id`** - ID da categoria.
-    -   Tipo: Inteiro (32 bits).
-    -   Informado na URL da requisição.
+-   **`id`** <small>(**inteiro**, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
