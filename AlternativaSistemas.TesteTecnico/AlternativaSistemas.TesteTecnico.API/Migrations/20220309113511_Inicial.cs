@@ -10,21 +10,21 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                 name: "Categorias",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categorias", x => x.Id);
+                    table.PrimaryKey("PK_Categorias", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Produtos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false),
@@ -34,12 +34,12 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produtos", x => x.Id);
+                    table.PrimaryKey("PK_Produtos", x => x.id);
                     table.ForeignKey(
                         name: "FK_Produtos_Categorias_category_id",
                         column: x => x.category_id,
                         principalTable: "Categorias",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 

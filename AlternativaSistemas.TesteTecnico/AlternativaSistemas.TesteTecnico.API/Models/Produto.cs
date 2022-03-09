@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace AlternativaSistemas.TesteTecnico.API.Models {
     public class Produto {
-        [Key]
-        
-        public int Id { get; set; }
 
+        [Key]
+        [Column("id")]
+        public int Id { get; set; }
 
         [Column("name")]
         [Required(ErrorMessage = "Este campo é obrigatório.")]

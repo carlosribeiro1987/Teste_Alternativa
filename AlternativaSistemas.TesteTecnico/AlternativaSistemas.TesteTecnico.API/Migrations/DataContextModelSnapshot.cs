@@ -23,6 +23,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
@@ -47,6 +48,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Brand")

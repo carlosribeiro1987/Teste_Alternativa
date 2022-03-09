@@ -1,6 +1,10 @@
-# Teste_Alternativa
+# API Teste - Alternativa Sistemas
 
-Teste técnico Alternativa Sistemas
+API simples para cadastro de produtos e categorias.
+
+### Criando o Banco de dados:
+
+Crie uma nova consulta com o conteúdo do [arquivo de script do banco de dados]("http://github.com/) e clique em **Executar Script**.
 
 ---
 
@@ -36,7 +40,7 @@ Teste técnico Alternativa Sistemas
 **Parâmetros:**
 
 -   **`id`** <small>(inteiro, 32 bits)</small>: ID da categoria. Informado na URL da requisição.
--   **`categoria`** <small>Objeto do tipo `categoria`</small>: Informado no corpo da requisição.
+-   **`categoria`** <small>Objeto contendo as alterações da categoria</small>: Informado no corpo da requisição.
     Parâmetros do objeto `categoria`
     -   **`id`** <small>(**inteiro**, 32bits)</small>: ID da categoria.
     -   **`name`** <small>(string, max. 50 caracteres)</small>: Nome da categoria.
@@ -90,11 +94,13 @@ Teste técnico Alternativa Sistemas
 **Parâmetros:**
 
 -   **`id`** ID do produto (**inteiro**, 32 bits). Informado na URL da requisição.
--   **`produto`** <small>Objeto contendo as alterações.`</small>: Informado no corpo da requisição. Parâmetros do objeto `produto`
+-   **`produto`** <small>Objeto contendo as alterações do produto.</small>: Informado no corpo da requisição. Parâmetros do objeto `produto`:
     -   **`id`** <small>(**inteiro**, 32bits)</small>: ID do produto.
     -   **`name`** <small>(string, max. 50 caracteres)</small>: Nome do produto.
-    -   **`description`** <small>(string, máx. 1024 caracteres)</small>: Descrição do produto
-    -   .
+    -   **`description`** <small>(string, máx. 1024 caracteres)</small>: Descrição do produto.
+    -   **`value`** <small>(**decimal**, precisão [10,2])</small>: Valor do produto.
+    -   **`brand`** <small>(**string**, máx 50 caracteres)</small>: Marca do produto.
+    -   **`categoryId`** <small>(**inteiro**, 32 bits)</small>: ID da categoria do produto.
 
 #### Excluir produto: **`/api/Produtos/{id}`**
 

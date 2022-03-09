@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlternativaSistemas.TesteTecnico.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220307202751_Inicial")]
+    [Migration("20220309113511_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
@@ -49,6 +50,7 @@ namespace AlternativaSistemas.TesteTecnico.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Brand")
